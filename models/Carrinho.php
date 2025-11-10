@@ -44,7 +44,7 @@
             $consulta->bindParam(':email', $email);
             $consulta->execute();
             
-            return $consuta->fetch(PDO::FETCH_OBJ);
+            return $consulta->fetch(PDO::FETCH_OBJ);
             
         }
 

@@ -12,7 +12,7 @@
                 self::$usuario, self::$senha);
 
             } catch (PDOException $e) {
-                die("Erro ao conectar com banco de dadaos: {$e->getMessage()}");
+                die("Erro ao conectar com banco de dados: {$e->getMessage()}");
             }
         }
     }

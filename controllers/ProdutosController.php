@@ -5,6 +5,6 @@
         }
 
         public function detalhes($id, $img) {
-            require_once "views/produto/detalhes.php";
+            require "../views/produto/detalhes.php";
         }
     }

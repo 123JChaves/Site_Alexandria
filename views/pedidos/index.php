@@ -21,11 +21,6 @@
                     <tr>
                         <td><?=$produtos->nome?></td>
                         <td><?=$produtos->qtde?></td>
-                        <td><?=$produtos->valor?></td>
-                        <td>
-                            <input type="number" value="<?=$produtos->qtde?>" class="form-control" 
-                            onblur="somarQuantidade(this.value,<?=$produtos->id?>)">
-                        </td>
                         <td><?= number_format($produtos->valor,2,',','.')?></td>
                         <td><?= number_format($produtos->qtde * $produtos->valor,2,',','.')?></td>
                     </tr>
