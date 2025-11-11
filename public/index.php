@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show de Feira - Site</title>
+    <title>Livraria Alexandria - Site</title>
 
     <base href="http://<?= $_SERVER["SERVER_NAME"] . $_SERVER["SCRIPT_NAME"] ?>">
 
@@ -27,7 +27,7 @@ session_start();
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index">
-                <img src="images/logo.jpg" alt="Livraria Alexandria">
+                <img src="images/logo2.jpg" alt="Livraria Alexandria" width="200">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,8 +47,8 @@ session_start();
 
                     ?>
                         <li class="nav-item">
-                            <a href="categoria/index/<?= $dados->id ?>" class="nav-link">
-                                <?= $dados->descricao ?>
+                            <a href="categoria/index/<?=$dados->id?>" class="nav-link">
+                                <?=$dados->descricao?>
                             </a>
                         </li>
                     <?php
@@ -94,7 +94,7 @@ session_start();
     <main class="container">
         <?php
         $param = "index";
-        $img = "http://localhost/Livraria_Alexandria/public/images";
+        $img = "http://localhost/Livraria_Alexandria/public/arquivos/";
 
         if (isset($_GET["param"])) {
             $param = explode("/", $_GET["param"]);
@@ -105,6 +105,8 @@ session_start();
         $id = $param[2] ?? null;
 
         $controller = ucfirst($controller) . "Controller";
+
+        //echo $controller;
 
         if (file_exists("../controllers/{$controller}.php")) {
 

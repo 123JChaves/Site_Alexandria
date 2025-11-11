@@ -3,7 +3,7 @@
     $urlProduto = "http://localhost/Livraria_Alexandria/public/apis/produto.php?id={$id}";
     $dadosProduto = json_decode(file_get_contents($urlProduto));
 
-    print_r($dadosProduto);
+    //print_r($dadosProduto);
 
 ?>
 

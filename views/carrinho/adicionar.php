@@ -7,7 +7,7 @@
 
     if(!empty($dadosProduto->id)) {
 
-        $qtde = $_SESSION["carrinho"][$id]["$qtde"] ?? 0;
+        $qtde = $_SESSION["carrinho"][$id]["qtde"] ?? 0;
         $qtde++;
 
         $_SESSION["carrinho"][$id] = array("id" => $dadosProduto->id,
