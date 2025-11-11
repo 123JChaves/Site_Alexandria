@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row">
             <?php
-                $urlProduto = "http://localhost/Livraria_Alexandria/public/apis/produto.php";
+                $urlProduto = "http://localhost/Livraria_Alexandria/public/apis/destaques.php";
                 $dadosProduto = json_decode(file_get_contents($urlProduto));
 
                 foreach($dadosProduto as $dados) {
@@ -35,5 +35,3 @@
         </p>
     </div>
 </div>
-
-                                   

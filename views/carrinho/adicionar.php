@@ -1,24 +1,25 @@
 <?php
 
-    $urlProduto
-    $dadosProduto
+    $urlProduto = "http://localhost/Livraria_Alexandria/public/apis/produto.php?id={$id}";
+    $dadosProduto = json_decode(file_get_contents($urlProduto));
 
-    if (!empty($dadosProduto->id)) {
+    //print_r($dadosProduto);
 
-        $qtde =$_SESSION["carrionho"] [$id] ["$qtde"] ?? 0;
+    if(!empty($dadosProduto->id)) {
+
+        $qtde = $_SESSION["carrinho"][$id]["$qtde"] ?? 0;
         $qtde++;
 
         $_SESSION["carrinho"][$id] = array("id" => $dadosProduto->id,
             "nome" => $dadosProduto->nome,
-            "qtde" => $qtd,
-            "valor" = $dadosProduto->valor,
+            "qtde" => $qtde,
+            "valor" => $dadosProduto->valor,
             "imagem" => $dadosProduto->imagem);
 
-            echo "<script>location.href='carrionho'</script>;"
-
+        echo "<script>location.href='carrinho'</script>";
 
     } else {
-        echo "<h2>Produto inválido!</h2>";
+        echo "<h2>Produto Inválido!</h2>";
     }
 
 ?>
