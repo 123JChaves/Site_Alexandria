@@ -5,7 +5,7 @@
         echo"<script>alert('Cliente não logado!')history.back()</script>";
     }
 
-    $token = "";
+    $token = "TEST-5808121931984784-111107-3aa1aa3be265d6997b87935c0459dd51-1077390063";
 
     require 'vendor/autoload.php';
 
@@ -34,16 +34,15 @@
 
     $preference->items = $itens;
 
-    // URL de retorno após o pagamento
     $preference->back_urls = array(
-        "success" => "https://www.Livraria-Alexandria.com.br/meli/sucesso.php",
-        "failure" => "https://www.Livraria-Alexandria.com.br/meli/falha.php",
-        "pending" => "https://www.sLivraria-Alexandria.com.br/meli/pendente.php"
+        "success" => "https://www.seusite.com.br/meli/sucesso.php",
+        "failure" => "https://www.seusite.com.br/meli/falha.php",
+        "pending" => "https://www.seusite.com.br/meli/pendente.php"
     );
 
-    $preference->notification_url = "https://www.Livraria-Alexandria.com.br/meli/notificacao.php";
+    $preference->notification_url = "https://www.seusite.com.br/meli/notificacao.php";
     
-    $preference->auto_return = "approved"; // Retorno automático quando aprovado
+    $preference->auto_return = "approved";
 
     $preference->save();
 

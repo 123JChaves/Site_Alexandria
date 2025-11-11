@@ -7,4 +7,5 @@
         public function detalhes($id, $img) {
             require "../views/produto/detalhes.php";
         }
+
     }

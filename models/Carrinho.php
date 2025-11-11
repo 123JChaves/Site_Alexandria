@@ -40,11 +40,11 @@
 
         public function logar($email) {
             $sql ="select * from cliente where email = :email limit 1";
-            $consulta = $this->pdo->prepare($sql);
-            $consulta->bindParam(':email', $email);
-            $consulta->execute();
+            $consuta = $this->pdo->prepare($sql);
+            $consuta->bindParam(':email', $email);
+            $consuta->execute();
             
-            return $consulta->fetch(PDO::FETCH_OBJ);
+            return $consuta->fetch(PDO::FETCH_OBJ);
             
         }
 
