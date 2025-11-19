@@ -65,7 +65,7 @@ session_start();
                     if (isset($_SESSION["cliente"])) {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="carrinho">
+                            <a class="nav-link" href="pedidos">
                                 <i class="fas fa-gift"></i>
                             </a>
                         </li>
