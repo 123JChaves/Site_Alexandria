@@ -5,7 +5,7 @@
         echo"<script>alert('Cliente não logado!')history.back()</script>";
     }
 
-    $token = "TEST-5808121931984784-111107-3aa1aa3be265d6997b87935c0459dd51-1077390063";
+    $token = "";
 
     require 'vendor/autoload.php';
 
