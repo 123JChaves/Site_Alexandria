@@ -1,0 +1,40 @@
+<?php
+
+    $urlProduto = "http://localhost/Livraria_Alexandria/public/apis/produto.php?id={$id}";
+    $dadosProduto = json_decode(file_get_contents($urlProduto));
+
+    //print_r($dadosProduto);
+
+?>
+
+<div class="card">
+    <div class="card-header">
+
+        <?php
+        if(empty($dadosProduto->id)) {
+            echo "<h2>Produto inválido!</h2>";
+        } else {
+            echo "<h2>{$dadosProduto->nome}</h2>"; 
+        }
+        ?>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <img src="<?=$img?><?=$dadosProduto->imagem?>" class="w-100" alt="<?=$dadosProduto->nome?>">
+            </div>
+            <div class="col-12 col-md-8">
+                <p><strong>Dados do Produto:</strong></p>
+                <?=$dadosProduto->descricao?>
+                <p class="float-start valor">
+                R$ <?=number_format($dadosProduto->valor, 2, ",",".")?>
+                </p>
+                <p class="float-end">
+                    <a href="carrinho/adicionar/<?=$dadosProduto->id?>" class="btn btn-success">
+                        <i class="fas fa-plus"></i>Adicionar ao Carrinho
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
