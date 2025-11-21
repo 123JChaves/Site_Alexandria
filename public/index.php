@@ -44,7 +44,11 @@ session_start();
                     $dadosCategoria = json_decode(file_get_contents($urlCategoria));
 
                     foreach ($dadosCategoria as $dados) {
+<<<<<<< HEAD
                     
+=======
+
+>>>>>>> c30b3b0ea35f83b9feaefeb8950ceed33f3bb370
                     ?>
                         <li class="nav-item">
                             <a href="categoria/index/<?=$dados->id?>" class="nav-link">
@@ -122,7 +126,11 @@ session_start();
 
 </body>
 
+<<<<<<< HEAD
 </html>
 
 <?php include '../views/footer.php'; ?>
 
+=======
+</html>
+>>>>>>> c30b3b0ea35f83b9feaefeb8950ceed33f3bb370
