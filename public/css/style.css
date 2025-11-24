@@ -48,8 +48,18 @@ body {
     box-shadow: 0 0 10px #ccc;
 }
 
-.valor {
-    font-size: 1.3em;
-    color: red;
-    font-weight: bold;
+a.btn-dark:hover {
+        background-color: #263055;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+
+button[type="submit"]:hover {
+        background-color: #263055;
+        transition: background-color 0.3s ease;
+}
+a.btn-danger:hover {
+        background-color: #ffffffff;
+        color: #ff1c1cff;
+        transition: background-color 0.3s ease;
 }

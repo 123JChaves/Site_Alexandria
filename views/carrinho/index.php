@@ -41,7 +41,7 @@
                                 <td><?=number_format($dados["valor"],2, ',', '.')?></td>
                                 <td><?=number_format($dados["qtde"] * $dados["valor"],2, ',', '.')?></td>
                                 <td>
-                                    <a href="carrinho/excluir/<?=$dados["id"]?>" class="btn btn-danger">
+                                    <a href="carrinho/excluir/<?=$dados["id"]?>" class="btn btn-danger border-0 rounded-4">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -51,15 +51,11 @@
                 }
                 ?>
             </tbody>
-        </table>
-        <p class="float-start">
-            <a href="carrinho/limpar" class="btn btn-warning">
-                Limpar Carrinho
-            </a>
-            <a href="carrinho/finalizar" class="btn btn-success">
-                Finalizar Compra
-            </a>
-        </p>
+        </table> 
+            <div class="btn-group gap-3">
+            <a href="carrinho/limpar" class="btn btn-danger border-0 rounded-4"> Limpar Carrinho </a>
+            <a href="carrinho/finalizar" class="btn btn-dark border-0 rounded-4"> Finalizar Compra </a>
+            </div>
         <p class="float-end valor">
             R$ <?=number_format($total,2, ',', '.')?>
         </p>
@@ -73,3 +69,20 @@
         })
     }
 </script>
+<style>
+a.btn-dark:hover {
+        background-color: #085a05ff;
+        color: #ffffffff;
+        transition: background-color 0.3s ease;
+    }
+
+button[type="submit"]:hover {
+        background-color: #263055;
+        transition: background-color 0.3s ease;
+}
+a.btn-danger:hover {
+        background-color: #5f0202ff;
+        color: #ffffffff;
+        transition: background-color 0.3s ease;
+}
+</style>
