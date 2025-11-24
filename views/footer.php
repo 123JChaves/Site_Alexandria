@@ -9,6 +9,4 @@
         &copy; 2025 - Livraria Alexandria
         <br>Conheça-nos</br>
     </p>
-    
-
 </footer>
