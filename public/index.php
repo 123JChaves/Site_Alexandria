@@ -126,3 +126,21 @@ session_start();
 
 <?php include '../views/footer.php'; ?>
 
+<style>
+a.btn-dark:hover {
+        background-color: #263055;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+
+button[type="submit"]:hover {
+        background-color: #263055;
+        transition: background-color 0.3s ease;
+}
+a.btn-danger:hover {
+        background-color: #ffffffff;
+        color: #ff1c1cff;
+        transition: background-color 0.3s ease;
+}
+</style>
+
