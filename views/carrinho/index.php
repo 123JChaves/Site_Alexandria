@@ -1,3 +1,19 @@
+  <style>
+    a.btn-dark:hover {
+      background-color: #085a05ff;
+      color: #ffffffff;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #263055;
+      transition: background-color 0.3s ease;
+    }
+    a.btn-danger:hover {
+      background-color: #5f0202ff;
+      color: #ffffffff;
+      transition: background-color 0.3s ease;
+    }
+  </style>
 <div class="card">
     <div class="card-header">
         <h2>Carrinho de Compras</h2>
@@ -69,20 +85,3 @@
         })
     }
 </script>
-<style>
-a.btn-dark:hover {
-        background-color: #085a05ff;
-        color: #ffffffff;
-        transition: background-color 0.3s ease;
-    }
-
-button[type="submit"]:hover {
-        background-color: #263055;
-        transition: background-color 0.3s ease;
-}
-a.btn-danger:hover {
-        background-color: #5f0202ff;
-        color: #ffffffff;
-        transition: background-color 0.3s ease;
-}
-</style>
