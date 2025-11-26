@@ -15,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -104,7 +105,7 @@ session_start();
         $acao = $param[1] ?? "index";
         $id = $param[2] ?? null;
 
-        $controller = ucfirst($controller) . "Controller";
+        $controller = ucfirst($controller)."Controller";
 
         //echo $controller;
 

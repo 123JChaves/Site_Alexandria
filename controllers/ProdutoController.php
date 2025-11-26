@@ -8,4 +8,8 @@
             require "../views/produto/detalhes.php";
         }
 
+        public function todosOsProdutos($id, $img) {
+            require "../views/produto/todosOsProdutos.php";
+        }
+
     }

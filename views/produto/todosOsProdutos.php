@@ -1,12 +1,12 @@
 <div class="card">
     <div class="card-header">
-        <h2>Produtos em Destaque</h2>
+        <h2>Todos os Produtos</h2>
     </div>
     <div class="card-body">
         <div class="row">
             <?php
 
-                $urlProduto = "http://localhost/Livraria_Alexandria/public/apis/destaques.php";
+                $urlProduto = "http://localhost/Livraria_Alexandria/public/apis/TodosOsProdutos.php";
                 $dadosProduto = json_decode(file_get_contents($urlProduto));
                 foreach($dadosProduto as $dados) {
                 
@@ -28,11 +28,6 @@
                 }
             ?>
         </div>
-        <p class="text-center">
-            <a href="produto/todosOsProdutos/" class="btn btn-dark mt-2 border-0 rounded-4 btn-lg">
-                <i class="fa fas-search"></i> Ver todos os produtos
-            </a>
-        </p>
     </div>
 </div>
 <style>
