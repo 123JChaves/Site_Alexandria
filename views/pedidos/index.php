@@ -10,7 +10,7 @@
             $totalPedido = 0; // Variável para armazenar a soma total do pedido atual
         ?>
             <p>
-                <strong>Pedido:<?= $dados->id ?></strong>Data:<?= $dados->dt ?>
+                <strong>Pedido:<?= $dados->id ?> </strong>Data:<?= $dados->dt ?>
             </p>
             <table class="table table-bordered table-striped">
                 <?php

@@ -70,7 +70,8 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', async () => {
+
+        document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch('http://localhost/Livraria_Alexandria/public/apis/quantidadeEstoque.php');
         const data = await response.json();
 
@@ -93,11 +94,11 @@
             if (produtosIndisponiveis.length > 0) {
                 let mensagem;
                 if (produtosIndisponiveis.length === 1) {
-                    mensagem = `Produto indisponível. 
-                    O produto ${produtosIndisponiveis.join(', ')} está indisponível`;
+                    mensagem = `Produto Indisponível.
+                    O produto ${produtosIndisponiveis.join(', ')} ou a quantidade estão indisponíveis`;
                 } else {
-                    mensagem = `Produtos indisponíveis. 
-                    Os seguintes produtos estão indisponíveis: ${produtosIndisponiveis.join(', ')}`;
+                    mensagem = `Produtos Indisponíveis.
+                    Os produtos estão indisponíveis: ${produtosIndisponiveis.join(', ')}`;
                 }
                 if (produtosIndisponiveis.length === 1) {
                 Swal.fire({
@@ -106,7 +107,7 @@
                     text: mensagem,
                     });
                 } else {
-                     Swal.fire({
+                    Swal.fire({
                     icon: 'error',
                     title: 'Produtos Indisponíveis',
                     text: mensagem,

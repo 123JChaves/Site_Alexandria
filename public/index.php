@@ -120,10 +120,9 @@ session_start();
         }
         ?>
     </main>
-
 </body>
-
+<footer>
+            <?php include '../views/footer.php';?>
+</footer>
 </html>
-
-<?php include '../views/footer.php';?>
 

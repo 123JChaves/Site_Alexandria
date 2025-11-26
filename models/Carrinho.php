@@ -49,51 +49,56 @@ class Carrinho
 
     public function salvarPedido($preference_id)
     {
+        try {
+            $this->pdo->beginTransaction();
 
-        $sqlPedido = "insert into pedido values (NULL, :cliente_id, NOW(), :preference_id)";
-        $consulta = $this->pdo->prepare($sqlPedido);
-        $consulta->bindParam(":cliente_id", $_SESSION["cliente"]["id"]);
-        $consulta->bindParam(":preference_id", $preference_id);
-
-        if ($consulta->execute()) {
+            $sqlPedido = "insert into pedido values (NULL, :cliente_id, NOW(), :preference_id)";
+            $consulta = $this->pdo->prepare($sqlPedido);
+            $consulta->bindParam(":cliente_id", $_SESSION["cliente"]["id"]);
+            $consulta->bindParam(":preference_id", $preference_id);
+            if (!$consulta->execute()) {
+                throw new Exception('Erro ao registrar o pedido');
+            }
 
             $pedido_id = $this->pdo->lastInsertId();
-
             foreach ($_SESSION["carrinho"] as $dados) {
-
+                $sqlVerificarProduto = "select * from produto where id = :id";
+                $consultaVerificarProduto = $this->pdo->prepare($sqlVerificarProduto);
+                $consultaVerificarProduto->bindParam(":id", $dados['id']);
+                $consultaVerificarProduto->execute();
+                $produto = $consultaVerificarProduto->fetch(PDO::FETCH_ASSOC);
+            
+                if (!$produto || $produto['quantidade'] < $dados['qtde']) {
+                    throw new Exception('Produto não disponível ou quantidade insuficiente');
+                }
                 $sqlItem = "insert into item values (:pedido_id, :produto_id, :qtde, :valor)";
                 $consultaItem = $this->pdo->prepare($sqlItem);
                 $consultaItem->bindParam(':pedido_id', $pedido_id);
                 $consultaItem->bindParam(':produto_id', $dados['id']);
                 $consultaItem->bindParam(':qtde', $dados['qtde']);
                 $consultaItem->bindParam(':valor', $dados['valor']);
+                if (!$consultaItem->execute()) {
+                    throw new Exception('Erro ao registrar o item');
+                }
 
-                if (!$consultaItem->execute()) return 0;
-            }
-        } else {
-            return 0;
-        }
-
-        unset($_SESSION["carrinho"]);
-        return 1;
-    }
-
-    public function atualizarEstoque()
-    {
-        try {
-            foreach ($_SESSION["carrinho"] as $dados) {
-                $sql = "UPDATE produto SET quantidade = quantidade - :quantidade WHERE id = :id";
-                $consulta = $this->pdo->prepare($sql);
-                $consulta->bindParam(':quantidade', $dados['qtde']);
-                $consulta->bindParam(':id', $dados['id']);
-                if (!$consulta->execute()) {
+                $sqlAtualizarEstoque = "update produto set quantidade = quantidade - :quantidade WHERE id = :id";
+                $consultaAtualizarEstoque = $this->pdo->prepare($sqlAtualizarEstoque);
+                $consultaAtualizarEstoque->bindParam(':quantidade', $dados['qtde']);
+                $consultaAtualizarEstoque->bindParam(':id', $dados['id']);
+                if (!$consultaAtualizarEstoque->execute()) {
                     throw new Exception('Erro ao atualizar o estoque');
                 }
             }
-            echo json_encode(['success' => true]);
+
+            $this->pdo->commit();
+            unset($_SESSION["carrinho"]);
+
+            return 1;
         } catch (Exception $e) {
-            echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+            $this->pdo->rollBack();
+            echo $e->getMessage();
+            return 0;
         }
-        exit;
     }
+
 }

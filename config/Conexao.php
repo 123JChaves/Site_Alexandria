@@ -2,7 +2,7 @@
     class Conexao {
         private static $host = "localhost";
         private static $usuario = "root";
-        private static $senha = "123456";
+        private static $senha = "";
         private static $banco = "alexandria";
 
         public static function conectar() {
