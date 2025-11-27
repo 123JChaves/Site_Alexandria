@@ -36,18 +36,13 @@ class CarrinhoController
         require "../views/carrinho/index.php";
     }
 
-    public function finalizar() {
-    if (isset($_SESSION["cliente"]["id"])) {
-        $resultado = $this->carrinho->salvarPedido('');
-        if ($resultado == 0 && isset($_SESSION['erro_estoque'])) {
-            require "../views/carrinho/erro_estoque.php";
-        } else {
+    public function finalizar()
+    {
+        if (isset($_SESSION["cliente"]["id"]))
             require "../views/carrinho/finalizar.php";
-        }
-    } else {
-        require "../views/carrinho/login.php";
+        else
+            require "../views/carrinho/login.php";
     }
-}
 
     public function cadastrar()
     {
